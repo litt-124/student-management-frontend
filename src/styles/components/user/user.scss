@@ -1,0 +1,51 @@
+
+.user-page {
+  .user-page-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 80px;
+    background-color: $color-primary;
+    height: 80px;
+
+    .logo-box {
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  table {
+    thead {
+      th:last-child {
+        min-width: 100px;
+      }
+    }
+  }
+
+  .form-field {
+    margin-bottom: 18px;
+  }
+
+  .add-user {
+
+    &:hover {
+      svg {
+        transition: .3s all;
+        fill: $color-primary;
+      }
+    }
+  }
+
+
+}
+
+.action {
+  margin-left: 10px;
+  cursor: pointer;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,115 @@
+.notification-box {
+  position: fixed;
+  top: 100px;
+  right: -600px;
+  z-index: 20;
+  opacity: 0;
+  justify-content: flex-end;
+  transition: right 0.5s ease, opacity 0.3s ease;
+
+  &.slide-in {
+    opacity: 1;
+    right: 50px;
+  }
+
+  &.slide-out {
+    opacity: 1;
+    right: -610px;
+  }
+
+  .notification {
+    width: 600px;
+    background-color: #ffffff;
+    padding: 15px 10px 15px 23px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    position: relative;
+
+    .icon-box {
+      width: 27px;
+      height: 27px;
+      margin-right: 23px;
+    }
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: 0;
+      max-width: 460px;
+      overflow: hidden;
+      word-wrap: break-word;
+
+      .title {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      .description {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .close-button {
+    background-color: transparent;
+    border: none;
+    margin-left: auto;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    .icon-box {
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      fill: #8C8C8C;
+    }
+  }
+
+  .close-button:hover {
+    background-color: rgba(150, 150, 150, 0.1);
+  }
+}
+
+@media (max-width: 850px) {
+  .notification-box {
+    .notification {
+      width: 300px;
+
+      .content-container {
+        max-width: 160px;
+
+        .icon-box {
+          width: 26.6px;
+          height: 26.6px;
+          margin-right: 12px;
+        }
+
+        .close-button {
+          .icon-box {
+            width: 30px;
+            height: 30px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .slide-in {
+    right: 20px;
+  }
+
+  .slide-out {
+    right: -310px;
+  }
+}

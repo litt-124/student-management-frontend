@@ -1,0 +1,167 @@
+/*|--------------------------------------------------------------------------| 
+  | forms.scss
+  |--------------------------------------------------------------------------| 
+  | This file contains  all the required styles for forms, including
+  | inputs
+  | datepicker
+  | cols
+  |--------------------------------------------------------------------------*/
+
+.form {
+  .multiple-form-group-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 75px;
+    margin-bottom: 20px;
+    margin-right: 25px;
+
+    .form-grpup {
+      margin-right: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .form-group {
+    position: relative;
+    text-align: left;
+    &.password-form-group {
+      .form-control {
+        padding-right: 50px;
+      }
+
+      .show-password-icon {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+  }
+
+  .form-control {
+    border: 1px solid $gray-500;
+    padding: 18px 16px;
+    color: $gray-700;
+    outline: none;
+    width: 100%;
+    background-color: transparent;
+    -moz-appearance: textfield;
+    appearance: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+
+    &.has-error {
+      border-color: $color-error;
+    }
+  }
+
+  .form-label {
+    padding: 5px 20px 5px 5px;
+    pointer-events: none;
+    z-index: 5;
+    display: inline-block;
+    color: $gray-700;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+
+
+    & > * {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &.no-margin {
+      margin-right: 0;
+      margin-left: 0;
+
+      & > * {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .col-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .col-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+  }
+
+  .col-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+
+  .col-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .col-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .col-4-5 {
+    flex: 0 0 auto;
+    width: 37.5%;
+  }
+
+
+  .col-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+
+  .col-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .col-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+
+  .col-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+  .col-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
+  .col-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  }
+
+  .col-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+  }
+
+  .col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+}

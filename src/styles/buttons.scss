@@ -1,0 +1,52 @@
+/*|--------------------------------------------------------------------------| 
+  | buttons.scss
+  |--------------------------------------------------------------------------| 
+  | This file contains  all the required classes for styling buttons and links
+  |--------------------------------------------------------------------------|*/
+  
+  .button {
+  font-size: 16px;
+  line-height: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  padding: 14px 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.button-with-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  &.button-primary {
+    background-color: $color-primary;
+    color: $white;
+    border:1px solid  $color-primary;
+
+    &:hover {
+      background-color: $white;
+      color: $color-primary;
+    }
+  }
+
+  &.button-secondary {
+    background-color: $color-secondary;
+    color: $white;
+    border:1px solid  $color-secondary;
+
+    &:hover {
+      background-color: $gray-700;
+      color: $color-secondary;
+    }
+  }
+
+  svg {
+    height: 22px;
+    width: 22px;
+    margin-right: 8px;
+  }
+}
+
