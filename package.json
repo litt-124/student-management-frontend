@@ -1,5 +1,5 @@
 {
-  "name": "student-management-frontend",
+  "name": "assignment-management-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,7 +15,6 @@
     "mdi-vue": "^3.0.13",
     "axios": "^1.6.6",
     "vue3-easy-data-table": "^1.5.47"
-
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",

@@ -49,12 +49,11 @@
                   placeholder=""/>
             </div>
             <div class="form-group">
-                            <label class="form-label body4" for="email"> {{ userSnippet.role }}</label>
+                            <label class="form-label body4" for="email"> {{ userSnippet.type }}</label>
 
               <custom-select
                   :options="options"
-                  :selectedRoleIsValid="selectedRoleIsValid"
-                  placeholder="Select role"
+                  :selectedTypeIsValid="selectedTypeIsValid"
                   @selected="handleSelectedOption"
               />
             </div>
@@ -72,7 +71,7 @@
                     placeholder=""/>
             </div>
             <div class="form-group">
-                          <label class="form-label body4" for="userName"> {{ userSnippet.userName }}</label>
+                          <label class="form-label body4" for="userName"> {{ userSnippet.username }}</label>
               <input
                   id="userName"
                   class="form-control body4"
@@ -114,7 +113,7 @@
           <button @click="addUser" class=" button button-primary">{{ userSnippet.save }}</button>
         </template>
       </PopupComponent>
-      <PopupComponent :isVisible="showDeletePopup" :title='userSnippet.deleteUser' fasIcon="fa-warning">
+      <PopupComponent :isVisible="showDeletePopup" :title='userSnippet.deleteUser'icon="#icon-user">
         <template v-slot:actions>
           <button @click="deleteReject" class=" button button-secondary">{{ userSnippet.cancel }}</button>
           <button @click="deleteConfirm" class=" button button-primary">{{ userSnippet.delete }}</button>

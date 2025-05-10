@@ -28,20 +28,16 @@ export const snippetList = [
     value: 'Last Name',
   },
   {
-    key: 'role',
-    value: 'Role',
+    key: 'type',
+    value: 'Type',
   },
   {
-    key: 'roles',
-    value: 'Roles',
+    key: 'types',
+    value: 'Types',
   },
   {
     key: 'email',
     value: 'Email',
-  },
-  {
-    key: 'phoneNumber',
-    value: 'Phone Number',
   },
   {
     key: 'actions',
@@ -66,6 +62,10 @@ export const snippetList = [
   {
     key: 'delete',
     value: 'Delete',
+  },
+  {
+    key: 'username',
+    value: 'Username',
   },
   {
     key: 'deleteUser',

@@ -16,6 +16,11 @@ const routes = [
   name: 'users-list',
     component: () => import('@/pages/user/UserView.vue'),
 },
+    {
+        path: '/home-page',
+        name: 'home-page',
+        component: () => import('@/pages/home-page/HomePageView.vue'),
+    },
 ];
 
 const router = createRouter({

@@ -10,9 +10,9 @@ export default {
             info: '#icon-important',
         };
         const titles = {
-            success: 'Erfolgreich',
-            error: 'Fehler ',
-            info: 'Hinweis',
+            success: 'Success',
+            error: 'Failure ',
+            info: 'Info',
         };
         const shown = ref(false);
         const content = ref('');

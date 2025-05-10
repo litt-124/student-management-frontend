@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-select form-control body4" :class="{'has-error': !selectedRoleIsValid}" ref="customSelect" @click="toggleDropdown">
+  <div class="custom-select form-control body4" :class="{'has-error': !selectedTypeIsValid}" ref="customSelect" @click="toggleDropdown">
     <div class="selected-option">{{ selectedOption ? selectedOption.label ? selectedOption.label : selectedOption : placeholder }}</div>
     <div class="arrow-icon" :class="{ 'arrow-up': isOpen, 'arrow-down': !isOpen }">
       <transition  name="fade">
@@ -28,7 +28,7 @@ export default {
       type: Object,
       default: null
     },
-    selectedRoleIsValid:{
+    selectedTypeIsValid:{
       type: Boolean,
       default: true
     },

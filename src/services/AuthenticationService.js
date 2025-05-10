@@ -32,7 +32,6 @@ export default class AuthenticationService extends ApiRequestService {
 
 
   static isAuthenticated() {
-    return true;
     return !!StorageService.getFromStorage(ACCESS_TOKEN)
   }
 }

@@ -70,7 +70,7 @@ export default {
     beforeUnmount() {
         window.removeEventListener('resize', this.updateWindowWidth);
         window.addEventListener('click', this.handleClickOutside);
-        this.subscription();
+        //this.subscription();
     },
 };
 

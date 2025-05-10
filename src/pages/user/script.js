@@ -24,7 +24,7 @@ export default defineComponent({
             showDeletePopup: false,
             firstNameIsValid: true,
             lastNameIsValid: true,
-            selectedRoleIsValid: true,
+            selectedTypeIsValid: true,
             userNameIsValid: true,
             emailIsValid: true,
             passwordIsValid: true,
@@ -32,89 +32,18 @@ export default defineComponent({
             toDeleteUser: '',
             options: [
                 {value: 'admin', label: 'Admin'},
-                {value: 'user', label: 'User'},
+                {value: 'student', label: 'Student'},
+                {value: 'teacher', label: 'Teacher'},
             ],
             headers: [
-                {text: snippets.roles, value: "role", sortable: true},
+                {text: snippets.type, value: "type", sortable: true},
                 {text: snippets.firstName, value: "firstName", sortable: true},
                 {text: snippets.lastName, value: "lastName", sortable: true},
                 {text: snippets.email, value: "email", sortable: true},
-                {text: snippets.userName, value: "userName", sortable: true},
+                {text: snippets.username, value: "username", sortable: true},
                 {text: snippets.actions, value: "actions",}
             ],
-            users: [
-                {
-                  "role": "Admin",
-                  "firstName": "John",
-                  "lastName": "Doe",
-                  "email": "john.doe@example.com",
-                  "userName": "johndoe"
-                },
-                {
-                  "role": "User",
-                  "firstName": "Jane",
-                  "lastName": "Smith",
-                  "email": "jane.smith@example.com",
-                  "userName": "janesmith"
-                },
-                {
-                  "role": "Manager",
-                  "firstName": "Robert",
-                  "lastName": "Johnson",
-                  "email": "robert.johnson@example.com",
-                  "userName": "robertjohnson"
-                },
-                {
-                  "role": "User",
-                  "firstName": "Alice",
-                  "lastName": "Brown",
-                  "email": "alice.brown@example.com",
-                  "userName": "alicebrown"
-                },
-                {
-                  "role": "User",
-                  "firstName": "Charlie",
-                  "lastName": "Davis",
-                  "email": "charlie.davis@example.com",
-                  "userName": "charliedavis"
-                },
-                {
-                  "role": "Moderator",
-                  "firstName": "Emily",
-                  "lastName": "Wilson",
-                  "email": "emily.wilson@example.com",
-                  "userName": "emilywilson"
-                },
-                {
-                  "role": "User",
-                  "firstName": "Frank",
-                  "lastName": "Miller",
-                  "email": "frank.miller@example.com",
-                  "userName": "frankmiller"
-                },
-                {
-                  "role": "User",
-                  "firstName": "Grace",
-                  "lastName": "Lee",
-                  "email": "grace.lee@example.com",
-                  "userName": "gracelee"
-                },
-                {
-                  "role": "Admin",
-                  "firstName": "Henry",
-                  "lastName": "Kim",
-                  "email": "henry.kim@example.com",
-                  "userName": "henrykim"
-                },
-                {
-                  "role": "User",
-                  "firstName": "Irene",
-                  "lastName": "Chen",
-                  "email": "irene.chen@example.com",
-                  "userName": "irenechen"
-                }
-              ]
-              ,
+            users: [],
             serverOptions: {
                 page: 1,
                 rowsPerPage: 25,
@@ -127,8 +56,7 @@ export default defineComponent({
     },
 
     mounted() {
-        console.log("this.users", this.users)
-        //this.loadFromServer(this.serverOptions);
+        this.loadFromServer(this.serverOptions);
     },
     methods: {
 
@@ -140,6 +68,7 @@ export default defineComponent({
                 const deletedUser = await UserService.deleteUser(this.toDeleteUser.id);
                 if (deletedUser) {
                     this.users = this.users.filter(user => user.id !== this.toDeleteUser.id);
+                    this.serverItemsLength--;
                     this.showDeletePopup = false;
                 }
                 EventBus.emit('show-notification', { type: "success"});
@@ -156,13 +85,13 @@ export default defineComponent({
         },
 
         async loadFromServer(options) {
-return;
             // Update serverOptions with new pagination options
             this.serverOptions = {...options};
             // Fetch data from server using pagination options
             this.loading = true;
             try {
                 const {users, totalCount} = await this.getTableData();
+                console.log(users)
                 this.users = users;
                 this.serverItemsLength = totalCount; // Update total server items
             } catch (error) {
@@ -190,21 +119,21 @@ return;
 
         handleSelectedOption(option) {
             if (option && option.value) {
-                this.selectedRole = option.value;
+                this.selectedType = option.value;
             }
         },
 
         initiateFormValues() {
             this.firstName = '';
             this.lastName = '';
-            this.selectedRole = '';
+            this.selectedType = '';
             this.email = ' ';
             this.userName = '';
             this.password = '';
             // Set validation states
             this.firstNameIsValid = true;
             this.lastNameIsValid = true;
-            this.selectedRoleIsValid = true;
+            this.selectedTypeIsValid = true;
             this.emailIsValid = true;
             this.userNameIsValid = true;
             this.passwordIsValid = true;
@@ -213,12 +142,12 @@ return;
         async addUser() {
             this.firstNameIsValid = this.validateName(this.firstName);
             this.lastNameIsValid = this.validateName(this.lastName);
-            this.selectedRoleIsValid = this.validateRole(this.selectedRole);
+            this.selectedTypeIsValid = this.validateType(this.selectedType);
             this.userNameIsValid = this.validateUserName(this.userName);
             this.emailIsValid = this.validateEmail(this.email);
             this.passwordIsValid = this.validatePassword(this.password);
 
-            if (!this.firstNameIsValid || !this.lastNameIsValid || !this.selectedRoleIsValid || !this.userNameIsValid || !this.emailIsValid || !this.passwordIsValid) {
+            if (!this.firstNameIsValid || !this.lastNameIsValid || !this.selectedTypeIsValid || !this.userNameIsValid || !this.emailIsValid || !this.passwordIsValid) {
                 return;
             }
 
@@ -230,10 +159,9 @@ return;
                 lastName: this.lastName,
                 email: this.email,
                 password: this.password,
-                userName: this.userName,
+                username: this.userName,
                 active: true,
-                role: this.selectedRole,
-                allowedCategories: []
+                type: this.selectedType,
             };
             try {
                 const isUserAdded = await UserService.addUser(data);
@@ -291,7 +219,7 @@ return;
             return !!v && v.trim().length > 0;
         },
 
-        validateRole: function (v) {
+        validateType: function (v) {
             return !!v && v.trim().length > 0;
         },
 

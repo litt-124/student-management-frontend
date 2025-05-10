@@ -3,9 +3,6 @@
   |--------------------------------------------------------------------------| 
   | This file contains  all the required styles for tables
   |--------------------------------------------------------------------------|*/
-  
-@import "@/styles/typography.scss";
-@import "@/styles/variables";
 
 body {
   overflow: hidden;
@@ -43,7 +40,10 @@ body {
 
     .search-container {
       display: flex;
-
+.form-group{
+  display: flex;
+  align-content: center;
+}
       .form-label::before {
         height: 8px;
         margin-top: 3px;

@@ -42,7 +42,7 @@ export default {
                 if (isAuthenticated) {
                     this.submitted = false;
                     this.showError = false;
-                    await this.$router.push('/homePage');
+                    await this.$router.push('/home-page');
                     this.$store.dispatch('user/fetchIsUserAdmin');
                 } else {
                     this.submitted = false;
