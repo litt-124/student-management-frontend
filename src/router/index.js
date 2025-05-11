@@ -22,6 +22,11 @@ const routes = [
         component: () => import('@/pages/user-details/UserDetailsView.vue'),
     },
     {
+        path: '/labs',
+        name: 'labs-list',
+        component: () => import('@/pages/lab/LabView.vue'),
+    },
+    {
         path: '/home-page',
         name: 'home-page',
         component: () => import('@/pages/home-page/HomePageView.vue'),

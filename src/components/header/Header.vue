@@ -8,15 +8,9 @@
       </svg>
       <div class="dropdown-content" v-if="isMenuOpen">
 
-        <router-link to="/dashboard" class="menu-link">{{ headerSnippet.dashboard }}</router-link>
         <router-link v-if="isUserAdmin" to="/users" class="menu-link">{{ headerSnippet.users }}</router-link>
-        <router-link v-if="isUserAdmin" to="/categories" class="menu-link">{{ headerSnippet.categories }}</router-link>
-        <router-link v-if="isDashboard && isNarrowScreen" :to="{ path: '/projects', query: { status: 'done' } }"
-                     class="menu-link">{{ headerSnippet.doneProjects }}
-        </router-link>
-        <router-link v-if="isDashboard && isNarrowScreen" :to="{ path: '/projects', query: { status: 'lost' } }"
-                     class="menu-link">{{ headerSnippet.lostProjects }}
-        </router-link>
+        <router-link v-if="isUserAdmin" to="/labs" class="menu-link">{{ headerSnippet.labs }}</router-link>
+
 
         <hr class="menu-divider">
         <button @click="logout" class="logout-button">

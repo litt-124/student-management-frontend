@@ -2,6 +2,7 @@ import { snippet as LoginSnippet } from '@/snippets/login/SnipetService'
 import { snippet as HeaderSnippet } from '@/snippets/header/SnipetService.js'
 import { snippet as UserSnippet } from '@/snippets/user/SnipetService.js'
 import { snippet as HomePageSnippet } from '@/snippets/home-page/SnipetService.js'
+import { snippet as Lab } from '@/snippets/lab/SnipetService.js'
 
 export default class SnippetsService {
   // contains current filtered snippet
@@ -51,6 +52,9 @@ export default class SnippetsService {
       case 'HomePage':
         this.currentSnippet = HomePageSnippet
         return this.filterSnippet(HomePageSnippet.getSnippetByLanguage(language));
+      case 'Lab':
+        this.currentSnippet = Lab
+        return this.filterSnippet(Lab.getSnippetByLanguage(language));
     }
   }
 
