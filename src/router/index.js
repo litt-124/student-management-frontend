@@ -22,6 +22,11 @@ const routes = [
         component: () => import('@/pages/user-details/UserDetailsView.vue'),
     },
     {
+        path: '/user-groups',
+        name: 'users-groups-list',
+        component: () => import('@/pages/user-group/UserGroupView.vue'),
+    },
+    {
         path: '/labs',
         name: 'labs-list',
         component: () => import('@/pages/lab/LabView.vue'),

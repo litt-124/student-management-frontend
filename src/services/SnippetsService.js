@@ -4,6 +4,7 @@ import { snippet as UserSnippet } from '@/snippets/user/SnipetService.js'
 import { snippet as HomePageSnippet } from '@/snippets/home-page/SnipetService.js'
 import { snippet as Lab } from '@/snippets/lab/SnipetService.js'
 import { snippet as Computer } from '@/snippets/computer/SnipetService.js'
+import { snippet as UserGroup } from '@/snippets/user-group/SnipetService.js'
 
 export default class SnippetsService {
   // contains current filtered snippet
@@ -59,6 +60,9 @@ export default class SnippetsService {
       case 'Computer':
         this.currentSnippet = Computer
         return this.filterSnippet(Computer.getSnippetByLanguage(language));
+      case 'UserGroup':
+        this.currentSnippet = UserGroup
+        return this.filterSnippet(UserGroup.getSnippetByLanguage(language));
     }
   }
 
