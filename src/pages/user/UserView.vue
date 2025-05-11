@@ -51,7 +51,7 @@
             <div class="form-group">
                             <label class="form-label body4" for="email"> {{ userSnippet.type }}</label>
 
-              <custom-select
+              <CustomSelect
                   :options="options"
                   :selectedTypeIsValid="selectedTypeIsValid"
                   @selected="handleSelectedOption"

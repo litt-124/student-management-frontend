@@ -1,0 +1,19 @@
+.user-details {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+  height: 91vh;
+
+  .save-button {
+    position: absolute;
+    top: 1.5%;
+    right: 1%;
+    z-index: 999;
+
+    & i {
+      margin-right: 10px;
+    }
+  }
+}
+

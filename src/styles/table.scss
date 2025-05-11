@@ -4,73 +4,51 @@
   | This file contains  all the required styles for tables
   |--------------------------------------------------------------------------|*/
 
-body {
-  overflow: hidden;
-}
 
 .table-container {
-  padding: 20px 80px;
+  padding: 40px 60px;
   display: flex;
   flex-direction: column;
   max-height: 95vh;
   overflow-y: auto;
+  font-family: 'Inter', sans-serif;
 
   .table-container-top {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 22px;
-    max-height: 58px;
-
-    * {
-      max-height: 58px;
-    }
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 16px;
 
     .title {
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 28px;
-      max-width: 260px;
+      font-size: 26px;
+      font-weight: 700;
+      color: $gray-700;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      align-items: center;
-      display: flex;
     }
 
     .search-container {
       display: flex;
-.form-group{
-  display: flex;
-  align-content: center;
-}
-      .form-label::before {
-        height: 8px;
-        margin-top: 3px;
+      gap: 12px;
+
+      .form-group {
+        display: flex;
+        align-items: center;
       }
 
-      .button {
-        margin-left: 15px;
-      }
-
-      input {
-        width: 420px;
-      }
     }
   }
 
   .table-container-bottom {
-    border: 1px solid $gray-700;
-    border-radius: 8px;
-    background-color: $gray-500;
-    height: 100%;
-    margin-bottom: 30px;
-    padding: 20px;
+    border-radius: 12px;
+    background-color: $white;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 24px;
 
     .vue3-easy-data-table {
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      margin-bottom: 20px;
       height: 100%;
 
       .vue3-easy-data-table__main {
@@ -79,97 +57,89 @@ body {
     }
 
     table {
-      thead {
-        tr {
-          border-radius: 4px 4px 0 0;
-          height: 48px;
+      width: 100%;
+      border-collapse: collapse;
 
-          th {
-            background-color: $gray-100;
-            border: none;
-            border-left: 1px solid $gray-500;
+      thead tr {
+        background-color: $gray-100;
+        height: 48px;
 
-            &:first-child {
-              border-left: none;
-            }
+        th {
+          font-size: 13px;
+          font-weight: 600;
+          color: $gray-700;
+          padding: 12px;
+          text-align: left;
+          border-bottom: 1px solid $gray-200;
+          border-left: 1px solid $gray-200;
 
-            .header-text {
-              font-size: 14px;
-              line-height: 16px;
-              font-weight: 500;
-              color: $gray-700;
-            }
+          &:last-child {
+            min-width: 100px;
+            text-align: center;
           }
         }
-
       }
 
-      tbody {
+      tbody tr {
+        transition: background-color 0.2s ease;
 
-        td {
-          height: 50px;
-          font-size: 14px;
-          font-weight: 500;
-          line-height: 16px;
-          background-color: transparent;
-
-          .mdi {
-            color: $gray-700;
-          }
+        &:nth-child(even) {
+          background-color: $gray-300;
         }
 
-        tr:nth-child(even) {
-          background-color: $gray-300;
+        &:hover {
+          background-color: $gray-100;
+        }
+      }
+
+      td {
+        font-size: 14px;
+        padding: 14px 12px;
+        color: $gray-700;
+
+        .mdi, .fas {
+          color: $gray-500;
         }
       }
     }
   }
 }
 
-@media (max-width: 920px) {
+.action {
+  margin-left: 8px;
+  cursor: pointer;
 
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 920px) {
   .table-container {
+    padding: 20px;
 
     .table-container-top {
       flex-direction: column;
-      max-height: unset;
+      align-items: flex-start;
 
       .search-container {
-        form {
-          width: 100%;
+        width: 100%;
 
-          .form-group {
-            width: 100%;
-
-            .form-control {
-              width: 100%;
-            }
-          }
+        .form {
+          flex-grow: 1;
         }
-
-        .button {
-          width: 200px;
-        }
-
-      }
-
-      .title {
-        line-height: 30px;
-        margin: 15px 0;
       }
     }
-
   }
 }
 
-
 @media (max-width: 650px) {
   .table-container {
-    padding: 0 10px calc(120px + env(safe-area-inset-bottom));
+    padding: 10px;
 
     .table-container-bottom {
-      padding: 20px;
-
+      padding: 16px;
     }
   }
 }

@@ -1,7 +1,7 @@
 /*|--------------------------------------------------------------------------| 
   | global.scss
   |--------------------------------------------------------------------------| 
-  | This file contains  all the required globl styles
+  | This file contains  all the required global styles
   |--------------------------------------------------------------------------|*/
 * {
   padding: 0;
@@ -12,3 +12,64 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(93, 92, 92, 0.5);
+}
+
+.spinner {
+  width: 80px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 25px;
+  height: 25px;
+  background-color: $color-primary;
+  border-radius: 100%;
+  display: inline-block;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  animation-delay: -0.16s;
+}
+.main-page {
+  padding: 20px;
+  color: $gray-700;
+}
+
+.left-side {
+  width: 15%;
+  min-width: 200px;
+
+  background-color: $gray-100;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.right-side {
+  flex-grow: 1;
+  padding: 20px 40px;
+  min-width: 300px;
+
+  .form {
+    margin-top: 10px;
+  }
+}
+

@@ -1,5 +1,5 @@
 <template>
-  <div class="user-page-top">
+  <div class="header-container">
     <div class="logo-box">
     </div>
     <div v-if="!$route.path.includes('login')" class="dropdown-menu f_dropdown-menu" @click="toggleMenu">

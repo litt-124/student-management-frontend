@@ -1,6 +1,6 @@
 import {defineComponent, ref} from "vue";
 import PopupComponent from '@/components/popup/PopupView.vue';
-import CustomSelect from '@/components/custom-select/custom-select.vue';
+import CustomSelect from '@/components/custom-select/CustomSelect.vue';
 import SnippetsService from "@/services/SnippetsService.js";
 import StorageService, {LANGUAGE_KEY} from "@/services/StorageService.js";
 import UserService from "@/services/UserService.js";
