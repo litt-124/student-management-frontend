@@ -27,6 +27,11 @@ const routes = [
         component: () => import('@/pages/lab/LabView.vue'),
     },
     {
+        path: '/computers',
+        name: 'computers-list',
+        component: () => import('@/pages/computer/ComputerView.vue'),
+    },
+    {
         path: '/home-page',
         name: 'home-page',
         component: () => import('@/pages/home-page/HomePageView.vue'),
