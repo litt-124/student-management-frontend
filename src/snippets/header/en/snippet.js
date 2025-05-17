@@ -14,6 +14,9 @@ export const snippetList = [
     {
         key: 'userGroups',
         value: 'User Groups',
+    },    {
+        key: 'exams',
+        value: 'Exams',
     },
     {
         key: 'logout',

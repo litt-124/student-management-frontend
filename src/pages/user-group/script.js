@@ -25,6 +25,7 @@ export default defineComponent({
             serverItemsLength: 0,
             selectedUserId: null,
             users: [],
+            selectedMembers: [],
             serverOptions: {
                 page: 1,
                 rowsPerPage: 25,
@@ -45,12 +46,16 @@ export default defineComponent({
     },
     mounted() {
         this.loadFromServer(this.serverOptions);
-this.loadUsers();
+        this.loadUsers();
     },
     methods: {
         async loadUsers() {
-            const { users } = await UserService.getUserList(0, 100); // assumes getUserList returns { users }
-            this.users = users;
+            const { users } = await UserService.getUserList(0, 100);
+            this.users = users.map(u => ({
+                ...u,
+                id: u.id,
+                fullName: `${u.firstName} ${u.lastName}`
+            }));
         },
         async loadFromServer(options) {
             this.serverOptions = { ...options };
@@ -64,6 +69,7 @@ this.loadUsers();
         toggleAddPopup() {
             this.editingId = null;
             this.groupName = '';
+            this.selectedMembers = [];
             this.groupDescription = '';
             this.selectedUserId = null;
             this.nameIsValid = true;
@@ -71,8 +77,10 @@ this.loadUsers();
         },
         async editGroup(item) {
             const group = await UserGroupService.getGroupById(item.id);
+            console.log(group);
             this.editingId = group._id;
             this.groupName = group.name;
+            this.selectedMembers = group.members || [];
             this.groupDescription = group.description;
             this.selectedUserId = group.userId || null;
             this.showPopup = true;
@@ -87,7 +95,8 @@ this.loadUsers();
             const payload = {
                 name: this.groupName,
                 description: this.groupDescription,
-                userId: this.selectedUserId || null
+                userId: this.selectedUserId || null,
+                members: this.selectedMembers.map(u => u.id)
             };
 
             try {

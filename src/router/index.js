@@ -32,6 +32,17 @@ const routes = [
         component: () => import('@/pages/lab/LabView.vue'),
     },
     {
+        path: '/exams',
+        name: 'exams-list',
+        component: () => import('@/pages/exam/ExamView.vue'),
+    },
+    {
+        path: '/exam-details/:id',
+        name: 'exam-details',
+        meta: {authenticated: true},
+        component: () => import('@/pages/exam-details/ExamDetailsView.vue'),
+    },
+    {
         path: '/computers',
         name: 'computers-list',
         component: () => import('@/pages/computer/ComputerView.vue'),

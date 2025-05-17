@@ -1,0 +1,26 @@
+export const snippetList = [
+  { key: 'exams', value: 'Exams' },
+  { key: 'title', value: 'Exam Title' },
+  { key: 'userGroup', value: 'User Group' },
+  { key: 'user', value: 'Author' },
+  { key: 'lab', value: 'Lab' },
+  { key: 'status', value: 'Status' },
+  { key: 'startTime', value: 'Start Time' },
+  { key: 'endTime', value: 'End Time' },
+  { key: 'actions', value: 'Actions' },
+  { key: 'addExam', value: 'Add Exam' },
+  { key: 'editExam', value: 'Edit Exam' },
+  { key: 'deleteExam', value: 'Are you sure you want to delete this exam?' },
+  { key: 'save', value: 'Save' },
+  { key: 'cancel', value: 'Cancel' },
+  { key: 'delete', value: 'Delete' },
+  { key: 'questionTitle', value: 'Question Title' },
+  { key: 'questionType', value: 'Question Type' },
+  { key: 'questionAttachment', value: 'Allow Attachments' },
+  { key: 'answerOptions', value: 'Answer Options' },
+  { key: 'addQuestion', value: 'Add Question' },
+  { key: 'mainPageTitle', value: 'Main' },
+  { key: 'questionsPageTitle', value: 'Questions' },
+  { key: 'addOption', value: 'Add Option' }
+
+];

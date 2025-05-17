@@ -1,0 +1,55 @@
+.questions-page{
+    padding: 20px;
+
+  .question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .question-block {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  .question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .option-line, .attachment-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .option-input, .attachment-input {
+    flex: 1;
+  }
+
+  .attachment-list {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style: disc;
+  }
+
+  .small-button {
+    padding: 4px 10px;
+  }
+
+  .add-question,
+  .add-option,
+  .add-attachment {
+    margin-top: 10px;
+  }
+
+  .danger {
+    background-color: #f44336;
+    color: white;
+  }
+}

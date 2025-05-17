@@ -14,7 +14,6 @@ export default defineComponent({
     },
     data() {
         const snippets = SnippetsService.getSnippetsByNamespaceAndLanguage('User', StorageService.getFromStorage(LANGUAGE_KEY) || 'en')?? {}
-        console.log(snippets);
         return {
             userSnippet: snippets ,
             isPasswordVisible: false,

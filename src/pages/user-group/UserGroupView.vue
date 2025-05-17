@@ -30,13 +30,38 @@
             </div>
             <div class="form-group">
               <label class="form-label">{{ groupSnippet.user }}</label>
-              <select class="form-control" v-model="selectedUserId">
+              <select class="form-control" v-model="selectedUserId" required>
                 <option :value="null">{{ groupSnippet.noUser }}</option>
                 <option v-for="user in users" :key="user.id" :value="user.id">
                   {{ user.firstName }} {{ user.lastName }}
                 </option>
               </select>
             </div>
+            <div class="form-group">
+              <label class="form-label">{{ groupSnippet.assignedUsers }}</label>
+              <Multiselect
+                  v-model="selectedMembers"
+                  :options="users"
+                  :multiple="true"
+                  :close-on-select="false"
+                  :clear-on-select="false"
+                  :preserve-search="true"
+                  placeholder="Select users..."
+                  label="fullName"
+                  track-by="id"
+              >
+                <template #option="{ option }">
+                  <span>{{ option.firstName }} {{ option.lastName }}</span>
+                </template>
+                <template #tag="{ option, remove }">
+      <span class="custom-tag">
+        {{ option.firstName }} {{ option.lastName }}
+        <span class="remove" @click="remove(option)">✕</span>
+      </span>
+                </template>
+              </Multiselect>
+            </div>
+
           </form>
         </template>
         <template v-slot:actions>

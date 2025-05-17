@@ -12,6 +12,7 @@
         <router-link v-if="isUserAdmin" to="/labs" class="menu-link">{{ headerSnippet.labs }}</router-link>
         <router-link v-if="isUserAdmin" to="/computers" class="menu-link">{{ headerSnippet.computers }}</router-link>
         <router-link v-if="isUserAdmin" to="/user-groups" class="menu-link">{{ headerSnippet.userGroups }}</router-link>
+        <router-link v-if="isUserAdmin" to="/exams" class="menu-link">{{ headerSnippet.exams }}</router-link>
 
 
         <hr class="menu-divider">
