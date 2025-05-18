@@ -3,6 +3,7 @@ import ExamService from "@/services/ExamService.js";
 import {useStore} from 'vuex';
 import ExamEdit from "@/pages/exam-details/exam-edit/ExamEdit.vue"
 import ExamQuestions from "@/pages/exam-details/exam-questions/ExamQuestions.vue"
+import ExamAnswers from "@/pages/exam-details/exam-answers/ExamAnswers.vue"
 import {isProxy, toRaw} from "vue";
 import SnippetsService from "@/services/SnippetsService.js";
 import StorageService, {LANGUAGE_KEY} from "@/services/StorageService.js";
@@ -14,6 +15,7 @@ export default {
     isSaved: false,
     showMain: false,
     showQuestions: false,
+    showAnswers: false,
     computed: {
         examDataToShow() {
             return this.updatedExamData ? this.updatedExamData : this.selectedExam
@@ -32,7 +34,7 @@ export default {
     },
 
     components: {
-        ExamEdit,ExamQuestions
+        ExamEdit,ExamQuestions,ExamAnswers
     },
 
     async mounted() {
@@ -45,6 +47,7 @@ export default {
         showComponent(componentName) {
             this.showMain = componentName === 'Main';
             this.showQuestions = componentName === 'Questions';
+            this.showAnswers = componentName === 'Answers';
 
         },
         async getExamApi() {

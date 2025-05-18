@@ -21,14 +21,6 @@ export const snippetList = [
   { key: 'addQuestion', value: 'Add Question' },
   { key: 'mainPageTitle', value: 'Main' },
   { key: 'questionsPageTitle', value: 'Questions' },
-  { key: 'answersPageTitle', value: 'Answers' },
-  { key: 'addOption', value: 'Add Option' },
-  { key: 'search', value: 'Search' },
+  { key: 'addOption', value: 'Add Option' }
 
-  {
-    key: 'selectStudent', value: 'Select a student'
-  },
-  {
-    key: 'noAnswer', value: 'No answer submitted'
-  }
 ];

@@ -24,4 +24,7 @@ export default class ExamService extends ApiRequestService {
     static deleteExam(id) {
         return this.deleteRequest(`exam/delete/${id}`);
     }
+    static getMyUpcomingExams() {
+        return this.getRequest('exam/user-upcoming');
+    }
 }

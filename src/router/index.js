@@ -43,6 +43,12 @@ const routes = [
         component: () => import('@/pages/exam-details/ExamDetailsView.vue'),
     },
     {
+        path: '/take-exam/:id',
+        name: 'take-exam',
+        meta: {authenticated: true},
+        component: () => import('@/pages/take-exam/TakeExamView.vue'),
+    },
+    {
         path: '/computers',
         name: 'computers-list',
         component: () => import('@/pages/computer/ComputerView.vue'),
