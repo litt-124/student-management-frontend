@@ -2,7 +2,7 @@
 ---
 
 ```md
-# Assignment Management – Frontend
+# Exam Management – Frontend
 
 A modern frontend built with **Vue 3**, **Vite**, and **Vue Router**. This UI allows students and admins to log in, manage exams, take exams, and review answers.
 
